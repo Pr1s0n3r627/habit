@@ -18,7 +18,7 @@ class CycleBreakerApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HabitProvider()),
       ],
       child: MaterialApp(
-        title: 'Cycle Breaker',
+        title: 'Break the Cycle',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
