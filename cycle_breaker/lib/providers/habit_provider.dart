@@ -3,17 +3,22 @@ import 'package:flutter/material.dart';
 import '../models/habit.dart';
 
 class HabitProvider with ChangeNotifier {
-  Habit? _habit;
+  List<Habit> _habits = [];
 
-  Habit? get habit => _habit;
+  List<Habit> get habits => _habits;
 
-  void startTracking(String name) {
-    _habit = Habit(name: name, startTime: DateTime.now());
+  void addHabit(String name) {
+    _habits.add(Habit(name: name, startTime: DateTime.now()));
     notifyListeners();
   }
 
-  void stopTracking() {
-    _habit = null;
+  void removeHabit(Habit habit) {
+    _habits.remove(habit);
+    notifyListeners();
+  }
+
+  void stopTracking(Habit habit) {
+    _habits.remove(habit);
     notifyListeners();
   }
 }
